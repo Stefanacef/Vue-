@@ -1,23 +1,21 @@
 <template>
-  <ShowCurrentDate v-if="displayCurrentDate" @close="togglePopUp" />
-  <button class="showtime-btn" v-if="!displayCurrentDate" @click="togglePopUp">
-    Click me
-  </button>
+  <Button @click="toggleDisplayDate" :displayDate="displayDate" :text="text" />
 </template>
 
 <script>
-import ShowCurrentDate from "./components/ShowCurrentDate.vue";
+import Button from "./components/Button.vue";
 export default {
   name: "App",
-  components: { ShowCurrentDate },
+  components: { Button },
   data() {
     return {
-      displayCurrentDate: false,
+      text: "Click me",
+      displayDate: false,
     };
   },
   methods: {
-    togglePopUp() {
-      this.displayCurrentDate = !this.displayCurrentDate;
+    toggleDisplayDate() {
+      this.displayDate = !this.displayDate;
     },
   },
 };
@@ -30,13 +28,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-}
-.showtime-btn {
-  background: rgb(241, 124, 124);
-  width: 300px;
-  height: 50px;
-  font-size: 20px;
-  border: transparent;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(135, 136, 134, 0.384);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
