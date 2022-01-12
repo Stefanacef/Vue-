@@ -13,7 +13,7 @@ export default {
       const current = new Date();
       const date = `${current.getDate()}.${
         current.getMonth() + 1
-      }${current.getFullYear()}`;
+      }.${current.getFullYear()}`;
       return date;
     },
     closePopUp() {
