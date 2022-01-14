@@ -1,12 +1,12 @@
 <template>
   <button class="show-date--btn">
-    {{ !displayDate ? text : currentDate() }}
+    {{ isDate ? (!displayDate ? text : currentDate()) : currentTime() }}
   </button>
 </template>
 
 <script>
 export default {
-  props: ["displayDate", "text"],
+  props: ["displayDate", "text", "isDate"],
   methods: {
     currentDate() {
       const current = new Date();
@@ -14,6 +14,11 @@ export default {
         current.getMonth() + 1
       }.${current.getFullYear()}`;
       return date;
+    },
+    currentTime() {
+      const current = new Date();
+      const time = current.toLocaleTimeString();
+      return time;
     },
   },
 };

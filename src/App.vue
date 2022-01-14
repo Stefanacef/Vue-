@@ -1,5 +1,16 @@
 <template>
-  <Button @click="toggleDisplayDate" :displayDate="displayDate" :text="text" />
+  <Button
+    @click="toggleUpdateTime"
+    :updateTime="updateTime"
+    :isDate="!isDate"
+  />
+
+  <!-- <Button
+    @click="toggleDisplayDate"
+    :displayDate="displayDate"
+    :isDate="isDate"
+    :text="text"
+  /> -->
 </template>
 
 <script>
@@ -11,11 +22,16 @@ export default {
     return {
       text: "Click me",
       displayDate: false,
+      isDate: true,
+      updateTime: false,
     };
   },
   methods: {
     toggleDisplayDate() {
       this.displayDate = !this.displayDate;
+    },
+    toggleUpdateTime() {
+      this.updateTime = !this.updateTime;
     },
   },
 };
@@ -33,7 +49,7 @@ export default {
   width: 100vw;
   background: rgba(135, 136, 134, 0.384);
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 </style>
