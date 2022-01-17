@@ -1,37 +1,30 @@
 <template>
-  <Button
+  <button
     @click="toggleUpdateTime"
     :updateTime="updateTime"
-    :isDate="!isDate"
-  />
-
-  <!-- <Button
-    @click="toggleDisplayDate"
-    :displayDate="displayDate"
-    :isDate="isDate"
-    :text="text"
-  /> -->
+    class="show-time--btn"
+  >
+    {{ currentTime() }}
+  </button>
 </template>
 
 <script>
-import Button from "./components/Button.vue";
 export default {
   name: "App",
-  components: { Button },
+
   data() {
     return {
-      text: "Click me",
-      displayDate: false,
-      isDate: true,
       updateTime: false,
     };
   },
   methods: {
-    toggleDisplayDate() {
-      this.displayDate = !this.displayDate;
-    },
     toggleUpdateTime() {
       this.updateTime = !this.updateTime;
+    },
+    currentTime() {
+      const current = new Date();
+      const time = current.toLocaleTimeString();
+      return time;
     },
   },
 };
@@ -51,5 +44,12 @@ export default {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+.show-time--btn {
+  background: rgb(241, 124, 124);
+  width: 300px;
+  height: 50px;
+  font-size: 20px;
+  border: transparent;
 }
 </style>
