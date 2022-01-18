@@ -1,30 +1,25 @@
 <template>
-  <button
-    @click="toggleUpdateTime"
-    :updateTime="updateTime"
-    class="show-time--btn"
-  >
-    {{ currentTime() }}
+  <button @click="updateTimeOnClick" class="show-time--btn">
+    {{ displayTime }}
   </button>
 </template>
 
 <script>
 export default {
   name: "App",
-
   data() {
     return {
-      updateTime: false,
+      displayTime: "Click me",
     };
   },
   methods: {
-    toggleUpdateTime() {
-      this.updateTime = !this.updateTime;
-    },
     currentTime() {
       const current = new Date();
       const time = current.toLocaleTimeString();
-      return time;
+      this.displayTime = time;
+    },
+    updateTimeOnClick() {
+      this.currentTime();
     },
   },
 };
