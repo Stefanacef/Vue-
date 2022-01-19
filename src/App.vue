@@ -13,13 +13,10 @@ export default {
     };
   },
   methods: {
-    currentTime() {
+    updateTimeOnClick() {
       const current = new Date();
       const time = current.toLocaleTimeString();
       this.displayTime = time;
-    },
-    updateTimeOnClick() {
-      this.currentTime();
     },
   },
 };
@@ -46,5 +43,6 @@ export default {
   height: 50px;
   font-size: 20px;
   border: transparent;
+  cursor: pointer;
 }
 </style>
